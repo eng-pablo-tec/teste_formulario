@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Teste</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #mensagem {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .form-group {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    button {
+      background: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    @media (max-width: 600px) {
+      .form-group {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="mensagem"></div>
+
+  <div class="form-container">
+    <h2>Formulário de Teste</h2>
+    <form id="formulario">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="login">Login</label>
+          <input type="text" id="login" name="login">
+        </div>
+
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha">
+        </div>
+
+        <div class="form-group">
+          <label for="dataNascimento">Data de Nascimento</label>
+          <input type="date" id="dataNascimento" name="dataNascimento">
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone">
+        </div>
+
+        <div class="form-group">
+          <label for="genero">Gênero</label>
+          <select id="genero" name="genero">
+            <option value="">Selecione</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade">
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <input type="text" id="estado" name="estado">
+        </div>
+
+        <div class="form-group">
+          <label for="obs">Observações</label>
+          <input type="text" id="obs" name="obs">
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const formulario = document.getElementById('formulario');
+    const mensagem = document.getElementById('mensagem');
+
+    formulario.addEventListener('submit', function(evento) {
+      evento.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+
+      if (nome !== "") {
+        mensagem.textContent = `Obrigado ${nome} por logar`;
+        mensagem.style.color = 'green';
+      } else {
+        mensagem.textContent = "Por favor, preencha pelo menos o campo nome.";
+        mensagem.style.color = 'red';
+      }
+    });
+  </script>
+
+</body>
+</html>
